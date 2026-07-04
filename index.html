@@ -133,3 +133,137 @@ document.getElementById("topMarkets").innerHTML=topHTML;
 document.getElementById("result").innerHTML=resultHTML;
 
 });
+  <div class="article">
+
+<h2>🌿 Royal Star Result Today</h2>
+
+<p>
+Royal Star का Live Result, Old Record Chart और Daily Update यहां सबसे पहले उपलब्ध कराया जाता है।
+</p>
+
+</div>
+
+<div class="article">
+
+<h2>🍀 Gold Star Result Today</h2>
+
+<p>
+Gold Star Market का रिज़ल्ट और पुराने रिकॉर्ड एक ही जगह आसानी से देखें।
+</p>
+
+</div>
+
+<div class="article">
+
+<h2>💚 Delhi Super Bazar Result Today</h2>
+
+<p>
+Delhi Super Bazar के Fast Result, Record Chart और Daily Update यहां उपलब्ध हैं।
+</p>
+
+</div>
+
+<footer style="
+background:#2E7D32;
+color:#fff;
+text-align:center;
+padding:20px;
+margin-top:20px;
+border-radius:20px 20px 0 0;
+">
+
+<img src="789d7790a53dd1b559e465aa1627f199.jpg"
+style="width:60px;height:60px;border-radius:50%;border:3px solid #fff;margin-bottom:10px;">
+
+<h3 style="margin:5px 0;">
+SATTA KING SUPER FAST RESULT
+</h3>
+
+<p>
+Fast Result • Trusted Service • Daily Update
+</p>
+
+<p style="font-size:13px;">
+© 2026 All Rights Reserved
+</p>
+
+</footer>
+
+<script>
+
+const sheetURL="https://docs.google.com/spreadsheets/d/e/2PACX-1vR3uLmOiEouq_jrISr2yP-Bvws1RcnTHAh6VqU8K2TqtapJ6QrzMvXev_BCy2uPvPIAtqmumiCLb3xO/pub?output=csv";
+
+fetch(sheetURL)
+.then(res=>res.text())
+.then(data=>{
+
+const rows=data.trim().split("\n");
+const header=rows[0].split(",");
+  let topHTML = "";
+let resultHTML = "";
+
+for (let i = 1; i < rows.length; i++) {
+
+const col = rows[i].split(",");
+
+topHTML += `
+<div class="market">
+🔥 ${col[1]} ........ ${col[2]}
+</div>
+`;
+
+const badgeColor =
+col[0].trim().toUpperCase() === "LIVE"
+? "#43A047"
+: "#1976D2";
+
+resultHTML += `
+
+<div class="box">
+
+<div class="status" style="background:${badgeColor}">
+${col[0]}
+</div>
+
+<div class="result">
+
+<div style="font-size:14px;color:#e53935;font-weight:bold;">
+${header[3]} &nbsp;&nbsp; ${header[4]}
+</div>
+
+<div style="font-size:46px;font-weight:bold;color:#111;">
+${col[3]} &nbsp;&nbsp; ${col[4]}
+</div>
+
+</div>
+
+<div class="name">
+${col[1]}
+</div>
+
+<div class="time">
+🕒 ${col[2]}
+</div>
+
+<div class="chart">
+<a href="#">📈 Record Chart</a>
+</div>
+
+<div style="clear:both;"></div>
+
+</div>
+`;
+
+}
+  document.getElementById("topMarkets").innerHTML = topHTML;
+document.getElementById("result").innerHTML = resultHTML;
+
+})
+.catch(error => {
+console.error("Error loading sheet:", error);
+});
+
+</script>
+
+</body>
+</html>
