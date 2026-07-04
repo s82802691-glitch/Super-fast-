@@ -1,49 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Satta King</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
 <div class="top">
 
-<div style="display:flex;align-items:center;justify-content:center;gap:12px;">
+<div class="top-inner">
 
-<img src="789d7790a53dd1b559e465aa1627f199.jpg"
-style="width:55px;height:55px;border-radius:50%;border:2px solid #fff;">
+<img src="789d7790a53dd1b559e465aa1627f199.jpg">
 
 <div>
-
-<h1 style="margin:0;color:#fff;font-size:28px;">
-SATTA KING
-</h1>
-
-<div style="font-size:15px;color:#e8ffe8;font-weight:bold;">
-SUPER FAST RESULT
+<h1>SATTA KING</h1>
+<div class="sub">SUPER FAST RESULT</div>
 </div>
 
 </div>
-
-</div>
-
-<div id="topMarkets" style="margin-top:15px;"></div>
 
 <p>जोड़ी रेट 10.....950</p>
-
 <p>सबसे फास्ट पेमेंट की सुविधा</p>
 
 <div class="phone">9649269875</div>
 
-<a class="btn whatsapp"
-href="https://wa.me/919649269875">
-WhatsApp
-</a>
-
-<a class="btn call"
-href="tel:9649269875">
-Call Now
-</a>
+<a class="btn whatsapp" href="https://wa.me/919649269875">WhatsApp</a>
+<a class="btn call" href="tel:9649269875">Call Now</a>
 
 </div>
 
-<div class="live">
-🔥 SATTA KING SUPER FAST RESULT 🔥
-</div>body{
+<div class="live">🔥 SUPER FAST RESULT 🔥</div>
+
+<div id="topMarkets"></div>
+<div id="result"></div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
+body{
 margin:0;
-font-family:Arial,sans-serif;
+font-family:Arial;
 background:#f6fff7;
 }
 
@@ -51,236 +51,85 @@ background:#f6fff7;
 background:linear-gradient(135deg,#2e7d32,#66bb6a);
 color:#fff;
 padding:18px;
-border-radius:0 0 25px 25px;
 text-align:center;
-box-shadow:0 3px 12px rgba(0,0,0,.15);
+border-radius:0 0 25px 25px;
 }
+
+.top-inner{
+display:flex;
+justify-content:center;
+align-items:center;
+gap:12px;
+}
+
+.top img{
+width:55px;
+height:55px;
+border-radius:50%;
+border:2px solid #fff;
+}
+
+.sub{font-weight:bold;font-size:14px}
 
 .phone{
-font-size:36px;
-font-weight:bold;
+font-size:30px;
 color:#fff176;
-margin-top:10px;
-}
-
-.market{
-font-size:18px;
-padding:4px;
-color:#fff;
+font-weight:bold;
 }
 
 .btn{
 display:inline-block;
-padding:11px 22px;
-margin:6px;
-border-radius:30px;
-text-decoration:none;
-font-weight:bold;
+padding:10px 20px;
+border-radius:25px;
 color:#fff;
-transition:.3s;
+text-decoration:none;
+margin:5px;
 }
 
-.whatsapp{
-background:#25D366;
-}
-
-.call{
-background:#2196F3;
-}
+.whatsapp{background:#25D366;}
+.call{background:#2196F3;}
 
 .live{
-background:linear-gradient(90deg,#4CAF50,#81C784);
-color:#fff;
-font-size:20px;
-font-weight:bold;
 text-align:center;
-padding:12px;
-margin:12px;
-border-radius:12px;
-box-shadow:0 2px 8px rgba(0,0,0,.15);
+background:#43a047;
+color:#fff;
+padding:10px;
+margin:10px;
+border-radius:10px;
+font-weight:bold;
 }
 
 .box{
 background:#fff;
-margin:12px;
-padding:14px;
-border-radius:16px;
-border-left:6px solid #4CAF50;
-box-shadow:0 3px 10px rgba(0,0,0,.10);
-overflow:hidden;
+margin:10px;
+padding:15px;
+border-radius:12px;
+border-left:5px solid #4caf50;
 }
-
-.status{
-background:#4CAF50;
-color:#fff;
-padding:6px 12px;
-border-radius:8px;
-font-weight:bold;
-display:inline-block;
-}
-
-.result{
-float:right;
-text-align:right;
-}
-
-.name{
-font-size:22px;
-font-weight:bold;
-color:#2E7D32;
-margin-top:8px;
-}
-
-.time{
-color:#777;
-font-size:14px;
-}
-
-.chart a{
-color:#1976D2;
-text-decoration:none;
-font-weight:bold;
-}
-
-.article{
-background:#fff;
-margin:12px;
-padding:16px;
-border-radius:15px;
-box-shadow:0 2px 8px rgba(0,0,0,.10);
-border-left:5px solid #4CAF50;
-}const sheetURL="https://docs.google.com/spreadsheets/d/e/2PACX-1vR3uLmOiEouq_jrISr2yP-Bvws1RcnTHAh6VqU8K2TqtapJ6QrzMvXev_BCy2uPvPIAtqmumiCLb3xO/pub?output=csv";
+const sheetURL="https://docs.google.com/spreadsheets/d/e/2PACX-1vR3uLmOiEouq_jrISr2yP-Bvws1RcnTHAh6VqU8K2TqtapJ6QrzMvXev_BCy2uPvPIAtqmumiCLb3xO/pub?output=csv";
 
 fetch(sheetURL)
 .then(res=>res.text())
 .then(data=>{
 
 let rows=data.trim().split("\n");
-let header=rows[0].split(",");
-
 let topHTML="";
 let resultHTML="";
 
 for(let i=1;i<rows.length;i++){
-
 let col=rows[i].split(",");
 
-topHTML+=`
-<div class="market">
-🔥 ${col[1]} ........ ${col[2]}
-</div>
-`;
+topHTML += `<div class="box">🔥 ${col[1]} --- ${col[2]}</div>`;
 
-let badgeColor=
-col[0].trim().toUpperCase()=="LIVE"
-?"#43A047"
-:"#1976D2";
-
-resultHTML+=`
-
+resultHTML += `
 <div class="box">
-
-<div class="status"
-style="background:${badgeColor}">
-${col[0]}
-</div>
-
-<div class="result">
-
-<div style="font-size:14px;color:#e53935;font-weight:bold;">
-${header[3]} &nbsp;&nbsp; ${header[4]}
-</div>
-
-<div style="font-size:46px;font-weight:bold;color:#111;">
-${col[3]} &nbsp;&nbsp; ${col[4]}
-</div>
-
-</div>
-
-<div class="name">
-${col[1]}
-</div>
-
-<div class="time">
-🕒 ${col[2]}
-</div>
-
-<div class="chart">
-<a href="#">📈 Record Chart</a>
-</div>
-
-<div style="clear:both;"></div>
-
-</div>
-
-`;
-
+<b>${col[1]}</b><br>
+⏰ ${col[2]}<br>
+🔥 ${col[3]} ${col[4]}
+</div>`;
 }
 
 document.getElementById("topMarkets").innerHTML=topHTML;
 document.getElementById("result").innerHTML=resultHTML;
 
-});<div class="article">
-
-<h2>🌿 Royal Star Result Today</h2>
-
-<p>
-Royal Star का Live Result, Old Record Chart और Daily Update यहां सबसे पहले उपलब्ध कराया जाता है।
-</p>
-
-</div>
-
-<div class="article">
-
-<h2>🍀 Gold Star Result Today</h2>
-
-<p>
-Gold Star Market का रिज़ल्ट और पुराने रिकॉर्ड एक ही जगह आसानी से देखें।
-</p>
-
-</div>
-
-<div class="article">
-
-<h2>💚 Delhi Super Bazar Result Today</h2>
-
-<p>
-Delhi Super Bazar के Fast Result, Record Chart और Daily Update यहां उपलब्ध हैं।
-</p>
-
-</div>
-
-<footer style="
-background:#2E7D32;
-color:#fff;
-text-align:center;
-padding:20px;
-margin-top:20px;
-border-radius:20px 20px 0 0;
-">
-
-<img src="789d7790a53dd1b559e465aa1627f199.jpg"
-style="
-width:60px;
-height:60px;
-border-radius:50%;
-border:3px solid #fff;
-margin-bottom:10px;
-">
-
-<h3 style="margin:5px 0;">
-SATTA KING SUPER FAST RESULT
-</h3>
-
-<p>
-Fast Result • Trusted Service • Daily Update
-</p>
-
-<p style="font-size:13px;">
-© 2026 All Rights Reserved
-</p>
-
-</footer>
-
-</body>
-  </html>
+});
